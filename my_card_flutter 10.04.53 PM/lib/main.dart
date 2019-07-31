@@ -4,6 +4,8 @@ void main() {
   runApp(MyApp());
 }
 
+// this part is init by taping stless
+// help in creating apps faster
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
