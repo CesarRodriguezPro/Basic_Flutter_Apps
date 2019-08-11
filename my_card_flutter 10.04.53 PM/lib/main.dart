@@ -13,32 +13,92 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.teal,
         body: SafeArea(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Container(
-                color: Colors.red,
-                width: 100,
-              ),
-              Column(
+          child: Center(
+            child: Container(
+                child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Container(
-                      color: Colors.yellow,
-                      width: 100,
-                      height: 100,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(children: <Widget>[
+                            CircleAvatar(
+                              radius: 50,
+                              backgroundImage: AssetImage('images/cesar.jpg'),
+                            ),
+                            Text(
+                              'Cesar Rodriguez',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 40.0,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Pacifico'),
+                            ),
+                            Text(
+                              'MOBILE DEVELOPER',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'SourceSansPro',
+                                  fontSize: 20,
+                                  letterSpacing: 2.5,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              height: 20,
+                              width: 150,
+                              child: Divider(
+                                color: Colors.teal[200],
+                              ),
+                            ),
+                            Card(
+                              child: ListTile(
+                                leading: Icon(
+                                  Icons.call,
+                                  color: Colors.teal[900],
+                                  size: 20.0,
+                                ),
+                                title: Text(
+                                  '+1 212 470 4458',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.teal[900],
+                                      fontFamily: 'SourceSansPro',
+                                      letterSpacing: 2.5),
+                                ),
+                              ),
+                            ),
+                            Card(
+                              child: ListTile(
+                                leading: Icon(
+                                  Icons.email,
+                                  color: Colors.teal[900],
+                                  size: 20.0,
+                                ),
+                                title: Text(
+                                  'streamlink777@gmail.com',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.teal[900],
+                                      fontFamily: 'SourceSansPro',
+                                      letterSpacing: 2),
+                                ),
+                              ),
+                            ),
+                          ]),
+                        ),
+                      ),
                     ),
-                    Container(
-                      color: Colors.yellowAccent[700],
-                      width: 100,
-                      height: 100,
-                    ),
-                  ]),
-              Container(
-                color: Colors.blue,
-                width: 100,
-              )
-            ],
+                  ],
+                ),
+              ),
+            )),
           ),
         ),
       ),
