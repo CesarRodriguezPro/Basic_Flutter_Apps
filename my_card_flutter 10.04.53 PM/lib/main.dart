@@ -83,7 +83,7 @@ class MyApp extends StatelessWidget {
                                 title: Text(
                                   'streamlink777@gmail.com',
                                   style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize: 16,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.teal[900],
                                       fontFamily: 'SourceSansPro',
