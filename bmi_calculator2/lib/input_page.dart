@@ -4,6 +4,7 @@ import 'icon_content.dart';
 import 'reusable_card.dart';
 import 'constants.dart';
 import 'cmToFts.dart';
+import 'result_page.dart';
 
 enum Gender {
   male,
@@ -14,6 +15,7 @@ class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
 }
+
 class _InputPageState extends State<InputPage> {
 
   Color maleCardColor = kInActiveCardColor;
@@ -74,7 +76,7 @@ class _InputPageState extends State<InputPage> {
                     crossAxisAlignment: CrossAxisAlignment.baseline,
                     textBaseline: TextBaseline.alphabetic,
                     children:[
-                    Text(cmToFeetCalculation(height)[0], style: kNumberTextStyle),
+                    Text(cmToFeetCalculation(height), style: kNumberTextStyle),
                     Text('Fts', style:klabelTextStyle ,),
                   ],
                   ),
@@ -164,11 +166,26 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: kButtonContainerColor,
-            width: double.infinity,
-            height: 50.0,
-            child:Center(child: Text('CALCULATE', style: kLargeButtonTextStyle,)),
+          GestureDetector(
+            onTap: (){
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context)=> ResultsPage(),
+                  ),
+              );
+            },
+            child: Container(
+              padding: EdgeInsets.only(bottom: 20),
+              color: kButtonContainerColor,
+              width: double.infinity,
+              height: 80.0,
+              child:Center(
+                  child: Text('CALCULATE',
+                    style: kLargeButtonTextStyle,
+                    )
+              ),
+            ),
           ),
         ],
       ),
