@@ -6,9 +6,11 @@ class Location {
 
   Future<void> getCurrentLocation()async{
     try{
-      Position position = await getCurrentPosition(desiredAccuracy: LocationAccuracy.low);
+      print('location requested');
+      Position position = await getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
       latitude = position.latitude;
       longitude = position.longitude;
+      print('latitude $latitude and longitude $longitude');
     }catch(e){
       print(e);
     }
