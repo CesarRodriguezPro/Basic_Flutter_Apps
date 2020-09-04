@@ -4,7 +4,6 @@ import '../services/weather.dart';
 import 'city_screen.dart';
 
 
-
 class LocationScreen extends StatefulWidget {
   LocationScreen({this.locationWeather});
   final locationWeather;
@@ -84,9 +83,9 @@ class _LocationScreenState extends State<LocationScreen> {
                       var typeName = await Navigator.push(context, MaterialPageRoute(
                           builder: (context) => CityScreen(),)
                       );
-                      if(typeName != null) {
+                      if(typeName != null){
                         var cityData = await weather.getCityWeather(typeName);
-                        updateUI(cityData);
+                          updateUI(cityData);
                       }
                     },
                     child: Icon(
