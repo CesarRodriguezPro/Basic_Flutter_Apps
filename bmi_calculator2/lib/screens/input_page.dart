@@ -47,6 +47,7 @@ class _InputPageState extends State<InputPage> {
                         genderSelected = Gender.male;
                       });
                     },
+
                       colour: genderSelected == Gender.male ? kActiveCardColor : kInActiveCardColor ,
                       cardWidget:GenderCard(
                         icon: FontAwesomeIcons.mars,
