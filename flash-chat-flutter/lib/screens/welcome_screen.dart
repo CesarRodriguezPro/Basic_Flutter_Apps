@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'login_screen.dart';
-import 'login_screen.dart';
 import 'registration_screen.dart';
-import 'registration_screen.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 
 class WelcomeScreen extends StatefulWidget {
@@ -12,23 +11,41 @@ class WelcomeScreen extends StatefulWidget {
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProviderStateMixin {
 
   AnimationController controller;
+  Animation animation;
+
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     controller = AnimationController(
       duration: Duration(seconds: 1),
-      vsync: //todo working in this part
+      vsync:this,
     );
+    animation = ColorTween(begin: Colors.blueGrey, end: Colors.white).animate(controller);
+
+    controller.forward();
+    controller.addListener(() {
+      setState(() {});
+    });
   }
+
+
+  @override
+  void dispose() {
+    // very important to dispose the controller when the screen changes to
+    // another screen.
+    controller.dispose();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: animation.value,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -41,15 +58,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   tag: 'logo',
                   child: Container(
                     child: Image.asset('images/logo.png'),
-                    height: 60.0,
+                    height: 60,
                   ),
                 ),
-                Text(
-                  'Flash Chat',
-                  style: TextStyle(
+                TypewriterAnimatedTextKit(
+                  speed: Duration(milliseconds: 500),
+                  totalRepeatCount:1,
+                  text:['Flash Chat'],
+                  textStyle: TextStyle(
                     fontSize: 45.0,
-                    fontWeight: FontWeight.w900,
-                  ),
+                    fontWeight: FontWeight.w900,),
                 ),
               ],
             ),
